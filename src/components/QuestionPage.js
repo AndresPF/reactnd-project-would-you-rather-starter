@@ -5,6 +5,14 @@ import QuestionAnswer from './QuestionAnswer'
 
 class QuestionPage extends Component {
 	render() {
+		if (this.props.notFound) {
+			return (
+				<div>
+					<h3>404 Not Found</h3>
+					<p>Question with that ID does not exists.</p>
+				</div>
+			)
+		}
 		const { authedUser, question, answered } = this.props
 		return (
 			<div className='question-page-container'>
@@ -26,6 +34,12 @@ class QuestionPage extends Component {
 
 function mapStateToProps({ authedUser, users, questions }, props) {
 	const { id } = props.match.params
+
+	if (questions[id] === undefined) {
+		return {
+			notFound: true,
+		}
+	}
 
 	return {
 		authedUser,

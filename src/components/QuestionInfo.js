@@ -10,7 +10,9 @@ function QuestionOption(props) {
 				<span className='option-votes'>
 					{count} out of {total} votes
 				</span>
-				<span className='option-percentage'>{(count / total) * 100}%</span>
+				<span className='option-percentage'>
+					{((count / total) * 100).toFixed(2)}%
+				</span>
 			</div>
 		</div>
 	)

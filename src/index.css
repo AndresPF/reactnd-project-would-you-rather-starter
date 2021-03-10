@@ -276,3 +276,117 @@ li {
   font-weight: 900;
   font-size: 1.25rem;
 }
+.question-page-container .inner-container .question-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.question-page-container .inner-container .question-form label {
+  margin: 10px 0;
+  font-size: 1.25rem;
+}
+.question-page-container .inner-container .question-form .btn {
+  width: 300px;
+  background-color: #00de9d;
+  color: #0b0098;
+  font-weight: 700;
+  opacity: 0.3;
+}
+.question-page-container .inner-container .question-form .btn:not([disabled]) {
+  opacity: 1;
+}
+.question-page-container .inner-container .question-form .btn:not([disabled]):hover, .question-page-container .inner-container .question-form .btn:not([disabled]):focus {
+  border-color: transparent;
+  background-color: #0b0098;
+  color: white;
+}
+
+.question-form-container {
+  margin: 0 auto;
+  max-width: 100%;
+  width: 500px;
+}
+.question-form-container .question-title {
+  text-align: center;
+  font-size: 2rem;
+}
+.question-form-container .question-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.question-form-container .question-form > * {
+  box-sizing: border-box;
+  margin: 10px 0;
+  width: 100%;
+}
+.question-form-container .question-form h3,
+.question-form-container .question-form h4 {
+  text-align: center;
+}
+.question-form-container .question-form .btn:disabled {
+  opacity: 0.3;
+}
+
+.leaderboard-list {
+  margin: 0 auto;
+  max-width: 100%;
+  width: 500px;
+}
+.leaderboard-list > li {
+  margin: 15px 0;
+}
+.leaderboard-list .user-score {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #eaeaea;
+}
+.leaderboard-list .user-score .user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  width: 30%;
+  background-color: #0b0098;
+}
+.leaderboard-list .user-score .user-info h2 {
+  margin: 0;
+  margin-bottom: 10px;
+  color: white;
+  font-size: 1.25rem;
+}
+.leaderboard-list .user-score .user-info .avatar {
+  margin: 0;
+  height: 100px;
+}
+.leaderboard-list .user-score .user-data {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 10px 30px;
+}
+.leaderboard-list .user-score .user-data > * {
+  margin: 5px 0;
+  font-weight: 700;
+}
+.leaderboard-list .user-score .user-data > * span {
+  color: #0b0098;
+  font-weight: 900;
+}
+.leaderboard-list .user-score .user-data .user-total {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  background-color: #00de9d;
+  text-align: center;
+  font-size: 1.25rem;
+}

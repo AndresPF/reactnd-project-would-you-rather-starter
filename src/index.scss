@@ -218,6 +218,7 @@ li {
 }
 
 //------------ Question Info/Answer ---------------------
+
 .question-page-container {
   display: flex;
   align-items: flex-start;
@@ -300,6 +301,127 @@ li {
           font-weight: 900;
           font-size: 1.25rem;
         }
+      }
+    }
+    .question-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      label {
+        margin: 10px 0;
+        font-size: 1.25rem;
+      }
+      .btn {
+        width: 300px;
+        background-color: $main-color;
+        color: $dark-blue;
+        font-weight: 700;
+        opacity: 0.3;
+        &:not([disabled]) {
+          @include hover {
+            border-color: transparent;
+            background-color: $dark-blue;
+            color: $full-white;
+          }
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+//------------ New Question ---------------------
+
+.question-form-container {
+  margin: 0 auto;
+  max-width: 100%;
+  width: 500px;
+  .question-title {
+    text-align: center;
+    font-size: 2rem;
+  }
+  .question-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    > * {
+      box-sizing: border-box;
+      margin: 10px 0;
+      width: 100%;
+    }
+    h3,
+    h4 {
+      text-align: center;
+    }
+    .btn {
+      &:disabled {
+        opacity: 0.3;
+      }
+    }
+  }
+}
+
+//------------ Leaderboard ---------------------
+
+.leaderboard-list {
+  margin: 0 auto;
+  max-width: 100%;
+  width: 500px;
+  > li {
+    margin: 15px 0;
+  }
+  .user-score {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: $partial-white;
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      width: 30%;
+      background-color: $dark-blue;
+      h2 {
+        margin: 0;
+        margin-bottom: 10px;
+        color: $full-white;
+        font-size: 1.25rem;
+      }
+      .avatar {
+        margin: 0;
+        height: 100px;
+      }
+    }
+    .user-data {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: 10px 30px;
+      > * {
+        margin: 5px 0;
+        font-weight: 700;
+        span {
+          color: $dark-blue;
+          font-weight: 900;
+        }
+      }
+      .user-total {
+        box-sizing: border-box;
+        padding: 10px;
+        width: 100%;
+        background-color: $main-color;
+        text-align: center;
+        font-size: 1.25rem;
       }
     }
   }

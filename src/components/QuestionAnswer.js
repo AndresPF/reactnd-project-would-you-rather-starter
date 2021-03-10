@@ -33,7 +33,7 @@ class QuestionAnswer extends Component {
 		return (
 			<div className='inner-container'>
 				<span className='question-title'>Would You Rather</span>
-				<form onSubmit={this.handleAnswer}>
+				<form onSubmit={this.handleAnswer} className='question-form'>
 					<label>
 						<input
 							type='radio'

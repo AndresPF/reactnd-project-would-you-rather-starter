@@ -48,13 +48,15 @@ class NewQuestion extends Component {
 
 		return (
 			<div className='question-form-container'>
-				<h3 className='question-title'>Create New Question</h3>
+				<h2 className='question-title'>Create New Question</h2>
 				<form onSubmit={this.handleSubmit} className='question-form'>
+					<h3>Would you rather</h3>
 					<textarea
 						placeholder='Enter Question One'
 						value={questionOne}
 						onChange={this.handleChangeOne}
 					/>
+					<h4>Or</h4>
 					<textarea
 						placeholder='Enter Question Two'
 						value={questionTwo}

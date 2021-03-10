@@ -23,12 +23,12 @@ class App extends Component {
 					<Nav />
 					<div className='container'>
 						{loading ? null : checkAuth ? (
-							<div>
+							<Fragment>
 								<Route path='/' exact component={Dashboard} />
 								<Route path='/question/:id' component={QuestionPage} />
 								<Route path='/new' component={NewQuestion} />
 								<Route path='/leaderboard' component={Leaderboard} />
-							</div>
+							</Fragment>
 						) : (
 							<LoginPage />
 						)}

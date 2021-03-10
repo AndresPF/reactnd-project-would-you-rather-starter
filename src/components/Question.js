@@ -12,9 +12,11 @@ class Question extends Component {
 					<img src={author.avatarURL} alt='' className='avatar' />
 				</div>
 				<div className='inner-container'>
-					<span>Would you rather...</span>
-					<span>{question.optionOne.text}...</span>
-					<Link to={`/question/${question.id}`}>View Question</Link>
+					<span className='question-title'>Would you rather...</span>
+					<span className='question-text'>{question.optionOne.text}...</span>
+					<Link className='btn' to={`/question/${question.id}`}>
+						View Question
+					</Link>
 				</div>
 			</div>
 		)

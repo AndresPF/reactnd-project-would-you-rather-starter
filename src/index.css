@@ -19,18 +19,15 @@ a {
 
 .btn {
   padding: 10px 18px;
-  border: 1px solid #eaeaea;
+  border: 1px solid rgba(37, 37, 37, 0.3);
   border-radius: 5px;
+  color: #252525;
   font-size: 1.25rem;
 }
 .btn:not([disabled]):hover, .btn:not([disabled]):focus {
   border-color: transparent;
   background-color: #0b0098;
   color: white;
-}
-
-.center {
-  text-align: center;
 }
 
 .nav {
@@ -115,19 +112,49 @@ li {
   width: 400px;
 }
 
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.dashboard-container .dashboard-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 10px 5px;
+  border-radius: 5px;
+  background-color: #252525;
+}
+.dashboard-container .dashboard-nav .btn {
+  margin: 0 5px;
+  border: none;
+}
+.dashboard-container .dashboard-nav .btn.active {
+  background-color: #00de9d;
+}
+.dashboard-container .dashboard-nav .btn.active:hover, .dashboard-container .dashboard-nav .btn.active:focus {
+  background-color: #0b0098;
+  color: white;
+}
 .dashboard-container .dashboard-list {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: space-around;
+  justify-content: center;
 }
 .dashboard-container .dashboard-list > li {
+  margin: 5px;
   width: calc((100% / 3) - 10px);
+}
+.dashboard-container .dashboard-list > li .btn {
+  padding: 5px 10px;
+  font-size: 1rem;
 }
 
 .question-container {
   box-sizing: border-box;
-  margin: 5px;
   width: 100%;
   border: 2px solid #252525;
 }
@@ -143,4 +170,109 @@ li {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
+  padding: 15px 5px;
+  width: 100%;
+}
+.question-container .inner-container .question-title {
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+}
+.question-container .inner-container .question-text {
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+  background-color: #eaeaea;
+  text-align: center;
+  font-size: 1.125rem;
+}
+
+.question-page-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1024px;
+  width: 100%;
+}
+.question-page-container .question-info {
+  max-width: 100%;
+  width: 500px;
+  border-radius: 5px;
+  background-color: #eaeaea;
+}
+.question-page-container .question-info .question-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 15px;
+  background-color: #0b0098;
+}
+.question-page-container .question-info .question-top h2 {
+  margin-top: 0;
+  color: white;
+}
+.question-page-container .question-info .question-top .avatar {
+  height: 100px;
+}
+.question-page-container .inner-container {
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #252525;
+}
+.question-page-container .inner-container .question-title {
+  display: block;
+  width: 100%;
+  color: black;
+  text-align: center;
+  font-weight: 700;
+  font-size: 3rem;
+}
+.question-page-container .inner-container .question-option {
+  box-sizing: border-box;
+  margin: 10px 0;
+  padding: 10px;
+  border: 2px solid rgba(37, 37, 37, 0.15);
+  background-color: white;
+}
+.question-page-container .inner-container .question-option.chosen {
+  border-color: #00de9d;
+}
+.question-page-container .inner-container .question-option.chosen .option-info .option-percentage {
+  background-color: #0b0098;
+  color: #00de9d;
+}
+.question-page-container .inner-container .question-option .option-text {
+  display: block;
+  box-sizing: border-box;
+  padding: 10px 10px 20px;
+  width: 100%;
+  color: black;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.question-page-container .inner-container .question-option .option-info {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #252525;
+  text-align: center;
+}
+.question-page-container .inner-container .question-option .option-info .option-votes {
+  flex: 2;
+  color: #0b0098;
+  font-weight: 700;
+}
+.question-page-container .inner-container .question-option .option-info .option-percentage {
+  flex: 1;
+  box-sizing: border-box;
+  padding: 10px;
+  color: #0b0098;
+  font-weight: 900;
+  font-size: 1.25rem;
 }

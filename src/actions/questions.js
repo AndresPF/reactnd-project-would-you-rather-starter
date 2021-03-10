@@ -1,9 +1,5 @@
-import { saveLikeToggle, saveQuestion } from '../utils/api'
-import { showLoading, hideLoading } from 'react-redux-loading'
-
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const TOGGLE_QUESTION = 'TOGGLE_QUESTION'
-export const ADD_QUESTION = 'ADD_QUESTION'
 
 export function recieveQuestions(questions) {
 	return {
@@ -30,27 +26,5 @@ export function recieveQuestions(questions) {
 // 			dispatch(toggleQuestion(info))
 // 			alert('There was an error liking the question. Try again.')
 // 		})
-// 	}
-// }
-
-// export function addQuestion(question) {
-// 	return {
-// 		type: ADD_QUESTION,
-// 		question,
-// 	}
-// }
-
-// export function handleAddQuestion(text, replyingTo) {
-// 	return (dispatch, getState) => {
-// 		const { authedUser } = getState()
-// 		dispatch(showLoading())
-
-// 		return saveQuestion({
-// 			text,
-// 			author: authedUser,
-// 			replyingTo,
-// 		})
-// 			.then((question) => dispatch(addQuestion(question)))
-// 			.then(hideLoading())
 // 	}
 // }

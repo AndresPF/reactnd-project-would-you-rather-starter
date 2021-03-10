@@ -33,8 +33,9 @@ a {
 
 .btn {
   padding: 10px 18px;
-  border: 1px solid $partial-white;
+  border: 1px solid rgba($dark-grey, 0.3);
   border-radius: 5px;
+  color: $dark-grey;
   font-size: 1.25rem;
   &:not([disabled]) {
     @include hover {
@@ -43,10 +44,6 @@ a {
       color: $full-white;
     }
   }
-}
-
-.center {
-  text-align: center;
 }
 
 .nav {
@@ -140,13 +137,43 @@ li {
 //------------ Dashboard -------------------
 
 .dashboard-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .dashboard-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 10px 5px;
+    border-radius: 5px;
+    background-color: $dark-grey;
+    .btn {
+      margin: 0 5px;
+      border: none;
+      &.active {
+        @include hover {
+          background-color: $dark-blue;
+          color: $full-white;
+        }
+        background-color: $main-color;
+      }
+    }
+  }
   .dashboard-list {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    justify-content: space-around;
+    justify-content: center;
     > li {
+      margin: 5px;
       width: calc((100% / 3) - 10px);
+      .btn {
+        padding: 5px 10px;
+        font-size: 1rem;
+      }
     }
   }
 }
@@ -155,7 +182,6 @@ li {
 
 .question-container {
   box-sizing: border-box;
-  margin: 5px;
   width: 100%;
   border: 2px solid $dark-grey;
   .question-top {
@@ -170,5 +196,111 @@ li {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
+    padding: 15px 5px;
+    width: 100%;
+    .question-title {
+      margin-bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-weight: 700;
+    }
+    .question-text {
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      padding: 10px;
+      width: 100%;
+      background-color: $partial-white;
+      text-align: center;
+      font-size: 1.125rem;
+    }
+  }
+}
+
+//------------ Question Info/Answer ---------------------
+.question-page-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1024px;
+  width: 100%;
+  .question-info {
+    max-width: 100%;
+    width: 500px;
+    border-radius: 5px;
+    background-color: $partial-white;
+    .question-top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: 15px;
+      background-color: $dark-blue;
+      h2 {
+        margin-top: 0;
+        color: $full-white;
+      }
+      .avatar {
+        height: 100px;
+      }
+    }
+  }
+  .inner-container {
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid $dark-grey;
+    .question-title {
+      display: block;
+      width: 100%;
+      color: $abyss-black;
+      text-align: center;
+      font-weight: 700;
+      font-size: 3rem;
+    }
+    .question-option {
+      box-sizing: border-box;
+      margin: 10px 0;
+      padding: 10px;
+      border: 2px solid rgba($dark-grey, 0.15);
+      background-color: $full-white;
+      &.chosen {
+        border-color: $main-color;
+        .option-info .option-percentage {
+          background-color: $dark-blue;
+          color: $main-color;
+        }
+      }
+      .option-text {
+        display: block;
+        box-sizing: border-box;
+        padding: 10px 10px 20px;
+        width: 100%;
+        color: $abyss-black;
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.5rem;
+      }
+      .option-info {
+        display: flex;
+        align-items: center;
+        border-top: 1px solid $dark-grey;
+        text-align: center;
+        .option-votes {
+          flex: 2;
+          color: $dark-blue;
+          font-weight: 700;
+        }
+        .option-percentage {
+          flex: 1;
+          box-sizing: border-box;
+          padding: 10px;
+          color: $dark-blue;
+          font-weight: 900;
+          font-size: 1.25rem;
+        }
+      }
+    }
   }
 }

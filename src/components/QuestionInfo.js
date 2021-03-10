@@ -21,24 +21,18 @@ export default function QuestionInfo(props) {
 	const total =
 		question.optionOne.votes.length + question.optionTwo.votes.length
 	return (
-		<div className='question-info'>
-			<div className='question-top'>
-				<h2>{question.author.name}</h2>
-				<img src={question.author.avatarURL} alt='' className='avatar' />
-			</div>
-			<div className='inner-container'>
-				<span className='question-title'>Result</span>
-				<QuestionOption
-					option={question.optionOne}
-					total={total}
-					chosen={question.optionOne.votes.includes(authedUser)}
-				/>
-				<QuestionOption
-					option={question.optionTwo}
-					total={total}
-					chosen={question.optionTwo.votes.includes(authedUser)}
-				/>
-			</div>
+		<div className='inner-container'>
+			<span className='question-title'>Result</span>
+			<QuestionOption
+				option={question.optionOne}
+				total={total}
+				chosen={question.optionOne.votes.includes(authedUser)}
+			/>
+			<QuestionOption
+				option={question.optionTwo}
+				total={total}
+				chosen={question.optionTwo.votes.includes(authedUser)}
+			/>
 		</div>
 	)
 }

@@ -1,4 +1,4 @@
-import { getInitialData, saveQuestion } from '../utils/api'
+import { getInitialData, saveQuestion, saveQuestionAnswer } from '../utils/api'
 import { recieveUsers } from '../actions/users'
 import { recieveQuestions } from '../actions/questions'
 import { setAuthedUser } from '../actions/authedUser'
@@ -43,11 +43,28 @@ export function handleAddQuestion(optionOneText, optionTwoText) {
 	}
 }
 
-export function answerQuestion({ id, authedUser, answer }) {
+export function answerQuestion({ authedUser, qid, answer }) {
 	return {
 		type: ANSWER_QUESTION,
-		id,
 		authedUser,
+		qid,
 		answer,
+	}
+}
+
+export function handleQuestionAnswer(qid, answer) {
+	return (dispatch, getState) => {
+		const { authedUser } = getState()
+		console.log(qid, answer)
+		const question = {
+			authedUser,
+			qid,
+			answer,
+		}
+		dispatch(showLoading())
+
+		return saveQuestionAnswer(question)
+			.then(() => dispatch(answerQuestion(question)))
+			.then(dispatch(hideLoading()))
 	}
 }

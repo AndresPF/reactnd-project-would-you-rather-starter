@@ -3,18 +3,63 @@ import { connect } from 'react-redux'
 import { handleQuestionAnswer } from '../actions/shared'
 
 class QuestionAnswer extends Component {
+	state = {
+		selectedOption: '',
+	}
+	setSelected = (e) => {
+		const value = e.target.value
+		this.setState(() => ({
+			selectedOption: value,
+		}))
+	}
+
+	handleAnswer = (e) => {
+		e.preventDefault()
+
+		const { selectedOption } = this.state
+		const { dispatch, question } = this.props
+		console.log(question)
+
+		dispatch(handleQuestionAnswer(question.id, selectedOption))
+
+		this.setState(() => ({
+			selectedOption: '',
+		}))
+	}
+
 	render() {
-		const { question, authedUser } = this.props
+		const { question } = this.props
+		const { selectedOption } = this.state
 		return (
-			<div className='question-info'>
-				<div className='question-top'>
-					<h2>{question.author.name}</h2>
-					<img src={question.author.avatarURL} alt='' className='avatar' />
-				</div>
-				<div className='inner-container'>
-					<span className='question-title'>Would You Rather:</span>
-					<div>Holi</div>
-				</div>
+			<div className='inner-container'>
+				<span className='question-title'>Would You Rather</span>
+				<form onSubmit={this.handleAnswer}>
+					<label>
+						<input
+							type='radio'
+							value='optionOne'
+							checked={selectedOption === 'optionOne'}
+							onChange={this.setSelected}
+						/>
+						{question.optionOne.text}
+					</label>
+					<label>
+						<input
+							type='radio'
+							value='optionTwo'
+							checked={selectedOption === 'optionTwo'}
+							onChange={this.setSelected}
+						/>
+						{question.optionTwo.text}
+					</label>
+					<button
+						className='btn'
+						type='submit'
+						disabled={selectedOption === ''}
+					>
+						Submit
+					</button>
+				</form>
 			</div>
 		)
 	}

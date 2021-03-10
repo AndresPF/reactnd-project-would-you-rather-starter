@@ -6,14 +6,19 @@ import QuestionAnswer from './QuestionAnswer'
 class QuestionPage extends Component {
 	render() {
 		const { authedUser, question, answered } = this.props
-		console.log(question, answered)
 		return (
 			<div className='question-page-container'>
-				{answered !== undefined ? (
-					<QuestionInfo question={question} authedUser={authedUser} />
-				) : (
-					<QuestionAnswer question={question} authedUser={authedUser} />
-				)}
+				<div className='question-info'>
+					<div className='question-top'>
+						<h2>{question.author.name}</h2>
+						<img src={question.author.avatarURL} alt='' className='avatar' />
+					</div>
+					{answered !== undefined ? (
+						<QuestionInfo question={question} authedUser={authedUser} />
+					) : (
+						<QuestionAnswer question={question} authedUser={authedUser} />
+					)}
+				</div>
 			</div>
 		)
 	}

@@ -16,7 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "lint": "eslint './src/**/*.{js,jsx}'",
+    "lint": "eslint ./src/**/*.{js,jsx}",
     "test": "react-scripts test",
     "test:all": "npm run test && npm run lint",
     "eject": "react-scripts eject"

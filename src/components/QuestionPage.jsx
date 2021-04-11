@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import QuestionInfo from './QuestionInfo'
 import QuestionAnswer from './QuestionAnswer'
 
-class QuestionPage extends Component {
-	render() {
-		if (this.props.notFound) {
+const QuestionPage = ({authedUser, question, answered, notFound}) => {
+		if (notFound) {
 			return (
 				<div>
 					<h3>404 Not Found</h3>
@@ -13,7 +12,7 @@ class QuestionPage extends Component {
 				</div>
 			)
 		}
-		const { authedUser, question, answered } = this.props
+
 		return (
 			<div className='question-page-container'>
 				<div className='question-info'>
@@ -29,7 +28,7 @@ class QuestionPage extends Component {
 				</div>
 			</div>
 		)
-	}
+	
 }
 
 function mapStateToProps({ authedUser, users, questions }, props) {

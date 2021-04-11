@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
+import { useSelector  } from 'react-redux'
 
-class Question extends Component {
-	render() {
-		const { question, author } = this.props
+const Question = ({id}) => {
+		const question = useSelector(state => state.questions[id])
+		const author = useSelector(state => state.users[question.author])
+
 		return (
 			<div className='question-container'>
 				<div className='question-top'>
@@ -20,15 +21,7 @@ class Question extends Component {
 				</div>
 			</div>
 		)
-	}
+	
 }
 
-function mapStateToProps({ questions, users }, { id }) {
-	const question = questions[id]
-	return {
-		question,
-		author: users[question.author],
-	}
-}
-
-export default connect(mapStateToProps)(Question)
+export default Question

@@ -10,10 +10,9 @@ export default function questions(state = {}, action) {
 			}
 
 		case ADD_QUESTION:
-			const { question } = action
 			return {
 				...state,
-				[question.id]: question,
+				[action.question.id]: action.question,
 			}
 
 		case ANSWER_QUESTION:

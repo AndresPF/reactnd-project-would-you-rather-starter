@@ -3,9 +3,7 @@ import { connect } from 'react-redux'
 import { handleQuestionAnswer } from '../actions/shared'
 
 class QuestionAnswer extends Component {
-	state = {
-		selectedOption: '',
-	}
+	state = {selectedOption: ''}
 	setSelected = (e) => {
 		const value = e.target.value
 		this.setState(() => ({

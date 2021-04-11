@@ -1,7 +1,7 @@
-import { getInitialData, saveQuestion, saveQuestionAnswer } from '../utils/api'
-import { recieveUsers } from '../actions/users'
-import { recieveQuestions } from '../actions/questions'
 import { showLoading, hideLoading } from 'react-redux-loading'
+import { getInitialData, saveQuestion, saveQuestionAnswer } from '../utils/api'
+import { recieveUsers } from "./users"
+import { recieveQuestions } from "./questions"
 
 export const ADD_QUESTION = 'ADD_QUESTION'
 export const ANSWER_QUESTION = 'ANSWER_QUESTION'

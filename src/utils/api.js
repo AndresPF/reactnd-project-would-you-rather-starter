@@ -1,12 +1,12 @@
 import {
-  _getUsers,
-  _getQuestions,
-  _saveQuestion,
-  _saveQuestionAnswer,
-} from './_DATA.js'
+  dummyGetUsers,
+  dummyGetQuestions,
+  dummySaveQuestion,
+  dummySaveQuestionAnswer,
+} from './_DATA'
 
 export function getInitialData() {
-  return Promise.all([_getUsers(), _getQuestions()]).then(
+  return Promise.all([dummyGetUsers(), dummyGetQuestions()]).then(
     ([users, questions]) => ({
       users,
       questions,
@@ -15,9 +15,9 @@ export function getInitialData() {
 }
 
 export function saveQuestion(info) {
-  return _saveQuestion(info)
+  return dummySaveQuestion(info)
 }
 
 export function saveQuestionAnswer(info) {
-  return _saveQuestionAnswer(info)
+  return dummySaveQuestionAnswer(info)
 }

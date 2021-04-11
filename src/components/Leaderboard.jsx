@@ -31,9 +31,7 @@ class Leaderboard extends Component {
 		return (
 			<ul className='leaderboard-list'>
 				{Object.keys(users)
-					.sort((a, b) => {
-						return sumScoreTotal(users[b]) - sumScoreTotal(users[a])
-					})
+					.sort((a, b) => sumScoreTotal(users[b]) - sumScoreTotal(users[a]))
 					.map((user) => (
 						<li key={users[user].id}>
 							<UserScore user={users[user]} />

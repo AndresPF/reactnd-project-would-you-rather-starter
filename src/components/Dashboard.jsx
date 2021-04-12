@@ -1,60 +1,38 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import List from './List'
-import { filterQuestions } from '../utils/helpers'
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import List from './List';
+import { filterQuestions } from '../utils/helpers';
 
-class Dashboard extends Component {
-	state = {
-		unanswered: true,
-	}
+const Dashboard = () => {
+  const [checkAnswer, setCheckAnswer] = useState(true);
+  const questions = useSelector((state) => state.questions);
+  const answers = useSelector((state) => state.users[state.authedUser].answers);
+  const questionIds = Object.keys(questions).sort(
+    (a, b) => questions[b].timestamp - questions[a].timestamp
+  );
+  const { unanswered, answered } = filterQuestions(questionIds, Object.keys(answers));
 
-	showAnswered = (visible) => {
-		this.setState(() => ({
-			unanswered: visible,
-		}))
-	}
+  return (
+    <div className="dashboard-container">
+      <div className="dashboard-nav">
+        <button
+          type="button"
+          className={`btn ${checkAnswer ? 'active' : ''}`}
+          onClick={() => setCheckAnswer(true)}
+        >
+          Unanswered
+        </button>
+        <button
+          type="button"
+          className={`btn ${!checkAnswer ? 'active' : ''}`}
+          onClick={() => setCheckAnswer(false)}
+        >
+          Answered
+        </button>
+      </div>
+      {checkAnswer ? <List questions={unanswered} /> : <List questions={answered} />}
+    </div>
+  );
+};
 
-	render() {
-		const { unanswered } = this.state
-		return (
-			<div className='dashboard-container'>
-				<div className='dashboard-nav'>
-					<button
-						className={`btn ${unanswered ? 'active' : ''}`}
-						onClick={() => this.showAnswered(true)}
-					>
-						Unanswered
-					</button>
-					<button
-						className={`btn ${!unanswered ? 'active' : ''}`}
-						onClick={() => this.showAnswered(false)}
-					>
-						Answered
-					</button>
-				</div>
-				{unanswered ? (
-					<List questions={this.props.unanswered} />
-				) : (
-					<List questions={this.props.answered} />
-				)}
-			</div>
-		)
-	}
-}
-
-function mapStateToProps({ authedUser, users, questions }) {
-	const questionIds = Object.keys(questions).sort(
-		(a, b) => questions[b].timestamp - questions[a].timestamp
-	)
-	const { unanswered, answered } = filterQuestions(
-		questionIds,
-		Object.keys(users[authedUser].answers)
-	)
-	return {
-		authedUser: users[authedUser],
-		unanswered,
-		answered,
-	}
-}
-
-export default connect(mapStateToProps)(Dashboard)
+export default Dashboard;

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import LoadingBar from 'react-redux-loading';
-import { addQuestion, handleInitialData } from '../actions/shared';
+import { handleInitialData } from '../actions/shared';
 import Dashboard from './Dashboard';
 import LoginPage from './LoginPage';
 import NewQuestion from './NewQuestion';

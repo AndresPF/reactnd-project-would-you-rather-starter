@@ -25,7 +25,7 @@ function UserScore(props) {
 	)
 }
 
-class Leaderboard extends Component {
+class LeaderBoard extends Component {
 	render() {
 		const { users } = this.props
 		return (
@@ -48,4 +48,4 @@ function mapStateToProps({ users }) {
 	}
 }
 
-export default connect(mapStateToProps)(Leaderboard)
+export default connect(mapStateToProps)(LeaderBoard)

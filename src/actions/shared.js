@@ -1,7 +1,7 @@
 import { showLoading, hideLoading } from 'react-redux-loading'
 import { getInitialData, saveQuestion, saveQuestionAnswer } from '../utils/api'
-import { recieveUsers } from "./users"
-import { recieveQuestions } from "./questions"
+import { receiveUsers } from "./users"
+import { receiveQuestions } from "./questions"
 
 export const ADD_QUESTION = 'ADD_QUESTION'
 export const ANSWER_QUESTION = 'ANSWER_QUESTION'
@@ -10,8 +10,8 @@ export function handleInitialData() {
 	return (dispatch) => {
 		dispatch(showLoading())
 		return getInitialData().then(({ users, questions }) => {
-			dispatch(recieveUsers(users))
-			dispatch(recieveQuestions(questions))
+			dispatch(receiveUsers(users))
+			dispatch(receiveQuestions(questions))
 			dispatch(hideLoading())
 		})
 	}

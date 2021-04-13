@@ -51,7 +51,6 @@ export function answerQuestion({ authedUser, qid, answer }) {
 export function handleQuestionAnswer(qid, answer) {
   return (dispatch, getState) => {
     const { authedUser } = getState();
-    console.log(qid, answer);
     const question = {
       authedUser,
       qid,

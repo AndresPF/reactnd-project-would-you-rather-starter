@@ -1,54 +1,54 @@
-import React, { Component } from 'react'
-import { NavLink, withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { clearAuthedUser } from '../actions/authedUser'
+import React from 'react';
+import { NavLink, withRouter } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { PropTypes } from 'prop-types';
+import { clearAuthedUser } from '../actions/authedUser';
 
-class Nav extends Component {
-  logout = () => {
-    const { dispatch } = this.props
-    dispatch(clearAuthedUser())
-    this.props.history.push('/')
-  }
+const Nav = ({ history }) => {
+  const dispatch = useDispatch();
+  const logout = () => {
+    dispatch(clearAuthedUser());
+    history.push('/');
+  };
 
-  render() {
-    const { authedUser } = this.props
-    return (
-      <nav className='nav'>
-        <ul>
-          <li>
-            <NavLink to='/' exact activeClassName='active'>
-              Home
-            </NavLink>
+  const authedUser = useSelector((state) => state.users[state.authedUser]);
+
+  return (
+    <nav className="nav">
+      <ul>
+        <li>
+          <NavLink to="/" exact activeClassName="active">
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/new" activeClassName="active">
+            New Question
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/leaderboard" exact activeClassName="active">
+            Leaderboard
+          </NavLink>
+        </li>
+        {authedUser && (
+          <li className="auth-info">
+            <span>Welcome {authedUser.name}</span>
+            <img className="avatar" src={authedUser.avatarURL} alt="" />
+            <button type="button" className="btn" onClick={logout}>
+              Logout
+            </button>
           </li>
-          <li>
-            <NavLink to='/new' activeClassName='active'>
-              New Question
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/leaderboard' exact activeClassName='active'>
-              Leaderboard
-            </NavLink>
-          </li>
-          {authedUser !== null && (
-            <li className='auth-info'>
-              <span>Welcome {authedUser.name}</span>
-              <img className='avatar' src={authedUser.avatarURL} alt='' />
-              <button className='btn' onClick={this.logout}>
-                Logout
-              </button>
-            </li>
-          )}
-        </ul>
-      </nav>
-    )
-  }
-}
+        )}
+      </ul>
+    </nav>
+  );
+};
 
-function mapStateToProps({ authedUser, users }) {
-  return {
-    authedUser: authedUser === null ? null : users[authedUser],
-  }
-}
+Nav.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
-export default withRouter(connect(mapStateToProps)(Nav))
+export default withRouter(Nav);

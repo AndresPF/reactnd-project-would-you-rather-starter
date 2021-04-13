@@ -2,9 +2,9 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import Question from './Question';
 
-const List = ({ questions }) => (
+const List = ({ questionsIds }) => (
   <ul className="dashboard-list">
-    {questions.map((id) => (
+    {questionsIds.map((id) => (
       <li key={id}>
         <Question id={id} />
       </li>
@@ -13,7 +13,7 @@ const List = ({ questions }) => (
 );
 
 List.propTypes = {
-  questions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  questionsIds: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default List;

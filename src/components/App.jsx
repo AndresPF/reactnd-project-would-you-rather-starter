@@ -11,7 +11,7 @@ import LeaderBoard from './LeaderBoard';
 import Nav from './Nav';
 
 const App = () => {
-  const loading = useSelector((state) => state.users.length === 0);
+  const loading = useSelector((state) => state.users.length !== 0);
   const checkAuth = useSelector((state) => state.authedUser !== null);
   const dispatch = useDispatch();
 

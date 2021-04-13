@@ -5,9 +5,9 @@ import { setAuthedUser } from '../actions/authedUser';
 const LoginPage = () => {
   const [selectedUser, setSelectedUser] = useState(true);
   const users = useSelector((state) => state.users);
+  const dispatch = useDispatch();
 
   const submitSelect = () => {
-    const dispatch = useDispatch();
     dispatch(setAuthedUser(selectedUser));
   };
 

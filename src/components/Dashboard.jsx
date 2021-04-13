@@ -30,7 +30,7 @@ const Dashboard = () => {
           Answered
         </button>
       </div>
-      {checkAnswer ? <List questions={unanswered} /> : <List questions={answered} />}
+      {checkAnswer ? <List questionsIds={unanswered} /> : <List questionsIds={answered} />}
     </div>
   );
 };

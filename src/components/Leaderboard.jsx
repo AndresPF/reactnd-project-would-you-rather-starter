@@ -45,7 +45,7 @@ UserScore.propTypes = {
   user: PropTypes.shape({
     name: PropTypes.string.isRequired,
     avatarURL: PropTypes.string.isRequired,
-    answers: PropTypes.arrayOf(PropTypes.string),
+    answers: PropTypes.shape(),
     questions: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
 };
